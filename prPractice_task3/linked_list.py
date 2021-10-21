@@ -133,3 +133,13 @@ class LinkedList:
         for i in range(length):
             self.insert_at_end(randint(start, end))
         return self
+
+    def swap_halves(self):
+        result_list = LinkedList()
+        half_length = self.size // 2
+        for i in range(half_length, self.size):
+            element = self[i]
+            result_list.insert_at_end(element)
+        for i in range(half_length):
+            result_list.insert_at_end(self[i])
+        return result_list

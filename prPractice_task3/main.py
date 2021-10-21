@@ -1,17 +1,6 @@
 from linked_list import *
 
 
-def swap_halves(list_of_elements):
-    result_list = LinkedList()
-    half_length = len(list_of_elements)//2
-    for i in range(half_length, len(list_of_elements)):
-        element = list_of_elements[i]
-        result_list.insert_at_end(element)
-    for i in range(half_length):
-        result_list.insert_at_end(list_of_elements[i])
-    return result_list
-
-
 def input_size():
     size = int(input("Enter a size of a list (should be 2n) "))
     return size
@@ -41,18 +30,18 @@ def menu():
                     print('Size should be 2n')
                     continue
                 list_ = linked_list.input_elements(fill_list(size))
-                result = swap_halves(list_)
+                result = list_.swap_halves()
                 print(result)
             elif option == 2:
                 size = input_size()
-                if not check_size():
+                if not check_size(size):
                     print('Size should be 2n')
                     continue
                 start = int(input('Enter from which value should we start '))
                 end = int(input('Enter a value to which we should generate '))
                 list_ = linked_list.generate_list(size, start, end)
                 print(list_)
-                result = swap_halves(list_)
+                result = list_.swap_halves()
                 print(result)
             elif option == 0:
                 print('End of program')

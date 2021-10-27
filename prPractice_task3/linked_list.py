@@ -89,7 +89,7 @@ class LinkedList:
         start.previous.next.next = start
         start.previous = start.previous.next
         self.size += 1
-        return
+        return self
 
     def remove(self, index):
         if (index >= self.size) | (index < 0):
@@ -100,16 +100,15 @@ class LinkedList:
             self.size -= 1
             return
         if index == (self.size - 1):
-            self.tail = self.tail.previous
-            self.tail.next = None
+            self.tail = None
             self.size -= 1
-            return
+            return self
         start = self.first_node
         for i in range(index):
             start = start.next
         start.previous.next, start.next.previous = start.next, start.previous
         self.size -= 1
-        return
+        return self
 
     def insert_at_end(self, value):
         if self.check_first_node():
